@@ -52,7 +52,7 @@ systemctl enable $Service &>> $LOGFILE
 systemctl restart $Service &>> $LOGFILE
 stat $?
 
-echo -n "Downloading Schema and inject it :"
+echo -n "Downloading Schema from Repo :"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 stat $?
 
