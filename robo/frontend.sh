@@ -7,14 +7,14 @@ ID=$(id -u)
 source robo/common.sh
 
 # Status function to check wheather it success or failure
-stat()  {
-        if [ $1 -eq 0 ] ; then
-            echo -e "\e[33m success \e[0m"
-         else   
-          echo -e  "\e[31m failure \e[0m"
-          exit 2
-         fi
-       }
+#stat()  {
+#        if [ $1 -eq 0 ] ; then
+#            echo -e "\e[33m success \e[0m"
+#         else   
+#          echo -e  "\e[31m failure \e[0m"
+#          exit 2
+#         fi
+#       }
 
 
 echo -e "\e[35m This scripting is for Frontend \e[0m"
@@ -49,9 +49,9 @@ stat $?
 
 #unzipping file
 echo -n "Extracting ${COMPONENT} component :"
-unzip /tmp/${COMPONENT}.zip &>> "/tmp/${COMPONENT}.log"
+unzip /tmp/${COMPONENT}.zip   &>> "/tmp/${COMPONENT}.log"
 mv ${COMPONENT}-main/* .
-mv static/* . &>> "/tmp/${COMPONENT}.log"
+mv static/* .    &>> "/tmp/${COMPONENT}.log"
 rm -rf ${COMPONENT}-main README.md
 mv localhost.conf /etc/${Service}/default.d/roboshop.conf
 stat $?
