@@ -36,3 +36,15 @@ stat $?
 echo -n "Installing $COMPONENT :"
 yum install -y $COMPONENT-org  &>> $LOGFILE
 stat $?
+
+echo -n "starting $COMPONENT service :"
+systemctl enable $Service &>> $LOGFILE
+systemctl start $Service &>> $LOGFILE
+stat $?
+
+echo -n "Enabling the DB visibility :"
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/$service.conf
+stat $?
+
+
+
