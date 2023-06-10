@@ -46,5 +46,14 @@ echo -n "Enabling the DB visibility :"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/$Service.conf
 stat $?
 
+echo -n "Restarting $COMPONENT service :"
+systemctl daemon-reload $Service &>> $LOGFILE
+systemctl enable $Service &>> $LOGFILE
+systemctl restart $Service &>> $LOGFILE
+stat $?
+
+echo -n "Download Schema and inject it :"
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+
 
 
