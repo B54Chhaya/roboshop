@@ -4,7 +4,7 @@ COMPONENT=frontend
 Service=nginx
 ID=$(id -u)
 
-source projects/common.sh
+source robo/common.sh
 
 # Status function to check wheather it success or failure
 stat()  {
