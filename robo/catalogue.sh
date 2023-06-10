@@ -2,6 +2,7 @@
 
 COMPONENT=catalogue
 Service=nginx
+ID=$(id -u)
 
 LOGFILE="/tmp/${COMPONENT}.log"
 # Status function to check wheather it success or failure
