@@ -52,8 +52,23 @@ systemctl enable $Service &>> $LOGFILE
 systemctl restart $Service &>> $LOGFILE
 stat $?
 
-echo -n "Download Schema and inject it :"
+echo -n "Downloading Schema and inject it :"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+stat $?
+
+echo -n "Extracting the $COMPONENT schema "
+cd /tmp
+unzip $COMPONENT.zip &>> $LOGFILE
+stat $?
+
+echo -n "Injecting the $COMPONENT schema "
+cd $COMPONENT-main
+mongo < catalogue.js
+mongo < users.js
+stat $?
+
+
+
 
 
 
