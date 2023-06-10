@@ -28,8 +28,11 @@ else
       echo -e "\e[32m User is Root - $ID \e[0m"
 fi
 
-echo -n "Confighuring the $COMPONENT repo:"
+echo -n "Configuring the $COMPONENT repo:"
 curl -s -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/mongo.repo &>> "/tmp/${COMPONENT}.log"
 stat $?
 
-# yum install -y mongodb-org
+# Installing Mongo Db
+echo -n "Installing $COMPONENT :"
+yum install -y $COMPONENT-org  &>> $LOGFILE
+stat $?
