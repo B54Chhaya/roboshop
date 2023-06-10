@@ -6,6 +6,7 @@ ID=$(id -u)
 
 source robo/common.sh
 
+
 # Status function to check wheather it success or failure
 #stat()  {
 #        if [ $1 -eq 0 ] ; then
