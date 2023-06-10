@@ -29,7 +29,7 @@ else
 fi
 
 echo -n "Confighuring the $COMPONENT repo:"
-curl -s -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/mongo.repo
+curl -s -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/mongo.repo &>> "/tmp/${COMPONENT}.log"
 Stat $?
 
 # yum install -y mongodb-org
