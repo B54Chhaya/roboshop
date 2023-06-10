@@ -2,6 +2,8 @@
 
 COMPONENT=frontend
 Service=nginx
+
+
 ID=$(id -u)
 
 source robo/common.sh
