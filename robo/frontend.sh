@@ -35,7 +35,7 @@ echo -e "\e[32m This will install $Service server on $COMPONENT server \e[0m"
 
 # Installing Nginx
 echo -n "Installing $Service :"
-yum install nginx -y &>> "/tmp/${COMPONENT}.log"
+yum install nginx -y &>> $LOGFILE
 stat $?
 
 
