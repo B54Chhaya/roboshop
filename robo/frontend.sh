@@ -59,7 +59,14 @@ rm -rf ${COMPONENT}-main README.md
 mv localhost.conf /etc/${Service}/default.d/roboshop.conf
 stat $?
 
+for component in catalogue ; do
+    sed -i -e "/$component/s/localhost/$component.roboshop.online/"  /etc/${Service}/default.d/roboshop.conf
+done
+
 echo -n "starting ${COMPONENT} service :"
+system daemon-reload &>> $LOGFILE
 systemctl enable $Service &>> $LOGFILE
 systemctl start $Service &>>  $LOGFILE
 stat $?
+
+
