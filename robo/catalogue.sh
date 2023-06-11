@@ -51,7 +51,7 @@ stat $?
 
 echo -n "Copying the $COMPONENT to $appuser home directory :"
 #chown -R $appuser:$appuser /home/roboshop/
-cd /home/$appuser/
+cd /home/${appuser}/
 rm -rf ${COMPONENT}
 unzip -o /tmp/catalogue.zip  &>> $LOGFILE
 stat $?
@@ -62,13 +62,13 @@ chown -R $appuser:$appuser /home/roboshop/$COMPONENT/
 stat $?
 
 echo -n "Generating npm $COMPONENT artificats :"
-cd /home/$appuser/$COMPONENT/
+cd /home/${appuser}/${COMPONENT}/
 npm install &>> $LOGFILE
 stat $?
 
 echo -n "Updated the $COMPONENT system file :"
-sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.public/'  /home/$appuser/$COMPONENT/systemd.service
-mv /home/$appuser/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.public/'  /home/${appuser}/${COMPONEN}T/systemd.service
+mv /home/${appuser}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
 stat $?
 
 echo -n "Starting $COMPONENT :"
