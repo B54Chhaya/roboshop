@@ -45,9 +45,9 @@ echo -n "User $appuser exist. "
 fi
 stat $?
 
-echo -n "Copying the $COMPONENT tp $appuser home directory :"
+echo -n "Copying the $COMPONENT to $appuser home directory :"
 cd /home/roboshop/
-unzip /tmp/catalogue.zip &>> $LOGFILE
+unzip -o /tmp/catalogue.zip &>> $LOGFILE
 stat $?
 
 echo - "Modifying the ownsership:"
