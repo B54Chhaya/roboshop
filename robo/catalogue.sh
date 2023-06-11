@@ -76,9 +76,7 @@ systemctl daemon-reload   &>> $LOGFILE
 systemctl enable $COMPONENT  &>> $LOGFILE
 systemctl restart $COMPONENT   &>> $LOGFILE
 stat $?
-dsf
 
-sdf
 
 
 
