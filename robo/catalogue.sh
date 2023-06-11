@@ -3,7 +3,7 @@
 COMPONENT=catalogue
 Service=nginx
 ID=$(id -u)
-appuser="roboshop"
+appuser=roboshop
 
 LOGFILE="/tmp/${COMPONENT}.log"
 # Status function to check wheather it success or failure
@@ -35,7 +35,7 @@ yum install nodejs -y &>> $LOGFILE
 stat $?
 
 echo -n "Check $appuser user exist or not :"
-id $appuser &>> $LOGFILE
+id $appuser
 if [ $? -ne 0 ] ; then
 echo -n "Creating Robos$appuser user :"
 useradd $appuser &>> $LOGFILE
