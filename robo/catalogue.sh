@@ -35,10 +35,13 @@ yum install nodejs -y &>> $LOGFILE
 stat $?
 
 echo -n "Check $appuser user exist or not :"
-id $appuser
+id $appuser &>> $LOGFILE
 if [ $? -ne 0 ] ; then
-echo -n "Creating Robos$appuser user :"
+echo -n "Creating $appuser user :"
 useradd $appuser &>> $LOGFILE
+echo -n "User $appuser created."
+else
+echo -n "User $appuser exist. "
 fi
 stat $?
 
