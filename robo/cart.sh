@@ -16,7 +16,7 @@ stat()  {
          fi
        }
 
-echo -e "\e[35m This scripting is for Catalo$COMPONENT  \e[0m"
+echo -e "\e[35m This scripting is for $COMPONENT  \e[0m"
 
 echo -n "To check whether user is root or not "
 if [ $ID -ne 0 ] ; then   
@@ -33,7 +33,7 @@ curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>>
 stat $?
 
 echo -n "Installing NodeJs :"
-yum install nodejs -y &>> $LOGFILE
+yum -o  install nodejs -y &>> $LOGFILE
 stat $?
 
 echo -n "Check $appuser user exist or not :"
