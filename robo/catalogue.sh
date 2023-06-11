@@ -3,6 +3,7 @@
 COMPONENT=catalogue
 Service=nginx
 ID=$(id -u)
+appuser="roboshop"
 
 LOGFILE="/tmp/${COMPONENT}.log"
 # Status function to check wheather it success or failure
@@ -17,8 +18,7 @@ stat()  {
 
 echo -e "\e[35m This scripting is for Catalogue \e[0m"
 
-echo "To check whether user is root or not "
-
+echo -n "To check whether user is root or not "
 if [ $ID -ne 0 ] ; then   
 echo -e "\e[31m This script will be excuted by Root user or Privileged user \e[0m"
 exit 1
@@ -33,4 +33,15 @@ stat $?
 echo -n "Installing NodeJs :"
 yum install nodejs -y &>> $LOGFILE
 stat $?
+
+echo -n "Check $appuser user exist or not :"
+id $appuser &>> $LOGFILE
+if [ $? -ne 0 ] ; then
+echo -n "Creating Robos$appuser user :"
+useradd $appuser &>> $LOGFILE
+fi
+stat #?
+
+
+
 
