@@ -3,10 +3,11 @@
 COMPONENT=frontend
 Service=nginx
 
-
-ID=$(id -u)
-
 source robo/common.sh
+
+#ID=$(id -u)
+
+
 
 #LOGFILE="/tmp/${COMPONENT}.log"
 # Status function to check wheather it success or failure
