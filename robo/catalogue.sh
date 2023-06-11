@@ -60,6 +60,12 @@ mv $COMPONENT-main/ $COMPONENT
 chown -R $appuser:$appuser /home/roboshop/$COMPONENT/
 stat $?
 
+echo -n "Generating npm $COMPONENT artificats :"
+cd /home/$appuser/$COMPONENT/
+npm install &>> $LOGFILE
+stat $?
+
+
 
 
 
