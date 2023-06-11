@@ -45,6 +45,10 @@ echo -n "User $appuser exist. "
 fi
 stat $?
 
+echo -n "Downloading the $COMPONENT component:"
+curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+stat $?
+
 echo -n "Copying the $COMPONENT to $appuser home directory :"
 #chown -R $appuser:$appuser /home/roboshop/
 cd /home/$appuser/
