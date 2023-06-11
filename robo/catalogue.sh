@@ -40,7 +40,7 @@ if [ $? -ne 0 ] ; then
 echo -n "Creating Robos$appuser user :"
 useradd $appuser &>> $LOGFILE
 fi
-stat #?
+stat $?
 
 
 
