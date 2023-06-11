@@ -46,11 +46,11 @@ fi
 stat $?
 
 echo -n "Copying the $COMPONENT to $appuser home directory :"
-cd /home/roboshop/
+cd /home/$appuser/
 unzip -o /tmp/catalogue.zip &>> $LOGFILE
 stat $?
 
-echo - "Modifying the ownsership:"
+echo -n "Modifying the ownsership:"
 mv $COMPONENT-main/ $COMPONENT
 chown -R $appuser:$appuser /home/roboshop/$COMPONENT/
 stat $?
