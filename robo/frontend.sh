@@ -61,7 +61,7 @@ mv localhost.conf /etc/${Service}/default.d/roboshop.conf
 stat $?
 
 echo -n "Updating the reverse proxy details:"
-for component in catalogue user cart shipping payment ; do
+for component in catalogue user cart ; do
     sed -i -e "/$component/s/localhost/$component.roboshop.online/"  /etc/${Service}/default.d/roboshop.conf
 done
 stat $?
