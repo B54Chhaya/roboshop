@@ -16,7 +16,7 @@ stat()  {
          fi
        }
 
-echo -e "\e[35m This scripting is for Catalogue \e[0m"
+echo -e "\e[35m This scripting is for Catalo$COMPONENT  \e[0m"
 
 echo -n "To check whether user is root or not "
 if [ $ID -ne 0 ] ; then   
