@@ -46,6 +46,7 @@ fi
 stat $?
 
 echo -n "Copying the $COMPONENT to $appuser home directory :"
+chown -R $appuser:$appuser /home/roboshop/
 cd /home/$appuser/
 unzip -o /tmp/catalogue.zip &>> $LOGFILE
 stat $?
