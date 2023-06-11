@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMPONENT=catalogue
+COMPONENT=cart
 Service=nginx
 ID=$(id -u)
 appuser=roboshop
@@ -80,7 +80,4 @@ systemctl restart $COMPONENT   &>> $LOGFILE
 stat $?
 
 echo -e "**************** \e[35m $COMPONENT Installation is completed \e[0m **************"
-
-
-
 
