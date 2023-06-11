@@ -66,7 +66,7 @@ done
 echo -n "starting ${COMPONENT} service :"
 system daemon-reload &>> $LOGFILE
 systemctl enable $Service &>> $LOGFILE
-systemctl start $Service &>>  $LOGFILE
+systemctl restart $Service &>>  $LOGFILE
 stat $?
 
 
