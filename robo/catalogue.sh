@@ -37,12 +37,22 @@ stat $?
 echo -n "Check $appuser user exist or not :"
 id $appuser &>> $LOGFILE
 if [ $? -ne 0 ] ; then
-echo -n "Creating $appuser user :"
+echo -n "Creating $appuser user : "
 useradd $appuser &>> $LOGFILE
 echo -n "User $appuser created."
 else
 echo -n "User $appuser exist. "
 fi
+stat $?
+
+echo -n "Copying the $COMPONENT tp $appuser home directory :"
+cd /home/roboshop/
+unzip /tmp/catalogue.zip &>> $LOGFILE
+stat $?
+
+echo - "Modifying the ownsership:"
+mv $COMPONENT-main/ $COMPONENT
+chown -R $appuser:$appuser /home/roboshop/$COMPONENT/
 stat $?
 
 
