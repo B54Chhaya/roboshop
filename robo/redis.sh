@@ -28,7 +28,7 @@ else
       echo -e "\e[32m User is Root - $ID \e[0m"
 fi
 
-echo -e "**************** \e [35m $COMPONENT Installation is started \e[0m **************"
+echo -e "**************** \e[35m $COMPONENT Installation is started \e[0m **************"
 
 echo -n "Configuring the $COMPONENT repo:"
 curl -L https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/${COMPONENT}.repo -o /etc/yum.repos.d/${COMPONENT}.repo
@@ -49,7 +49,7 @@ systemctl enable $COMPONENT &>> $LOGFILE
 systemctl restart $COMPONENT &>> $LOGFILE
 stat $?
 
-echo -e "**************** \e [35m $COMPONENT Installation is completed \e[0m **************"
+echo -e "**************** \e[35m $COMPONENT Installation is completed \e[0m **************"
 
 
 
