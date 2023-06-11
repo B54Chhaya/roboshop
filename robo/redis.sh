@@ -18,7 +18,7 @@ stat()  {
          fi
        }
 
-echo -e "\e[35m This scripting is for MongoDb \e[0m"
+echo -e "\e[35m This scripting is for Redis \e[0m"
 
 echo -n "To check whether user is root or not :"
  if [ $ID -ne 0 ] ; then   
