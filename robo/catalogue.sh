@@ -66,6 +66,18 @@ cd /home/$appuser/$COMPONENT/
 npm install &>> $LOGFILE
 stat $?
 
+echo -n "Updated the $COMPONENT system file :"
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.public'  /home/$appuser/$COMPONENT/systemd.service
+mv /home/$appuser/$COMPONENT/systemd.service /etc/systemd/system/$COMPONENT.service
+stat $?
+
+echo -n "Starting $COMPONENT :"
+systemctl daemon-reload   &>> $LOGFILE
+systemctl enable $COMPONENT  &>> $LOGFILE
+systemctl restart $COMPONENT   &>> $LOGFILE
+stat $?
+
+
 
 
 
