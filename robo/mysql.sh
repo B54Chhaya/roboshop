@@ -33,7 +33,7 @@ curl -s -L -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com
 stat $?
 
 echo -e "Install $COMPONENT database :"
-curl yum install $COMPONENT-community-server -y &>> $LOGFILE
+yum install $COMPONENT-community-server -y &>> $LOGFILE
 stat $?
 
 echo -e "Starting $COMPONENT database :"
