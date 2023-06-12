@@ -33,13 +33,13 @@ curl -s -L -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com
 stat $?
 
 echo -n "Install $COMPONENT database :"
-yum install mysql-community-server -y &>> $LOGFILE
+yum install mysql-community-server -y    &>> $LOGFILE
 stat $?
 
 echo -n "Starting $COMPONENT database :"
-systemctl daemon-reload   &>> $LOGFILE
-systemctl enable mysqld &>> $LOGFILE
-systemctl restart mysqld &>> $LOGFILE
+systemctl daemon-reload    &>> $LOGFILE
+systemctl enable mysqld    &>> $LOGFILE
+systemctl restart mysqld    &>> $LOGFILE
 stat $?
 
 
