@@ -49,14 +49,14 @@ curl -s -L -o /tmp/shipping.zip "https://github.com/stans-robot-project/shipping
 stat $?
 
 echo -n "Unzipping $COMPONENT :"
-unzip /tmp/$COMPONENT.zip
+unzip /tmp/$COMPONENT.zip &>> $LOGFILE
 stat $?
 
 echo -n "Clean $COMPONENT package:"
-mv $COMPONENT-main $COMPONENT
+mv $COMPONENT-main $COMPONENT &>> $LOGFILE
 cd $COMPONENT
-mvn clean package 
-mv target/$COMPONENT-1.0.jar $COMPONENT.jar
+mvn clean package  &>> $LOGFILE
+mv target/$COMPONENT-1.0.jar $COMPONENT.jar &>> $LOGFILE
 stat $?
 
 echo -n "Updated the $COMPONENT system file :"
