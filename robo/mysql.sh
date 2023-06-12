@@ -29,7 +29,7 @@ fi
 echo -e "**************** \e[35m $COMPONENT Installation is started \e[0m **************"
 
 echo -n "Setup $COMPONENT database :"
-curl -s -L -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/${COMPONEN}T.repo &>> $LOGFILE
+curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stans-robot-project/mysql/main/mysql.repo &>> $LOGFILE
 stat $?
 
 echo -n "Install $COMPONENT database :"
