@@ -28,15 +28,15 @@ fi
 
 echo -e "**************** \e[35m $COMPONENT Installation is started \e[0m **************"
 
-echo -e "Setup $COMPONENT database :"
+echo -n "Setup $COMPONENT database :"
 curl -s -L -o /etc/yum.repos.d/$COMPONENT.repo https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/${COMPONEN}T.repo &>> $LOGFILE
 stat $?
 
-echo -e "Install $COMPONENT database :"
+echo -n "Install $COMPONENT database :"
 yum install $COMPONENT-community-server -y &>> $LOGFILE
 stat $?
 
-echo -e "Starting $COMPONENT database :"
+echo -n "Starting $COMPONENT database :"
 systemctl daemon-reload   &>> $LOGFILE
 systemctl enable mysqld &>> $LOGFILE
 systemctl restart mysqld &>> $LOGFILE
