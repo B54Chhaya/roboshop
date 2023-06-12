@@ -43,7 +43,7 @@ systemctl restart mysqld    &>> $LOGFILE
 stat $?
 
 echo -n "Fecthing default password :"
-DEFAULT_ROOT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk '{print $11}')
+DEFAULT_ROOT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}')
 stat $?
 
 echo "show databases;" | mysql -uroot -pRoboShop@1 &>> $LOGFILE
